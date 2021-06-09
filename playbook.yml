@@ -11,11 +11,7 @@
     - Postgresql
     - Odoo
 #-----------------------------
-    - addons_managys
-    #- create_db
-    #- odoo_modules  
-    #- backup
-    #- restore
+  
 
 
 
