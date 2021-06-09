@@ -1,0 +1,106 @@
+---
+
+- name: Installing Python and other dependent libraries
+  apt: 
+     name: "{{ packages }}"
+     #update_cache: yes 
+     state: latest
+  vars:
+    packages: 
+      - python-dateutil 
+      - python-docutils 
+      - python-feedparser 
+      - python-jinja2 
+      - python-ldap 
+      - python-libxslt1 
+      - python-lxml 
+      - python-mako 
+      - python-mock 
+      - python-openid 
+      - python-psycopg2 
+      - python-psutil 
+      - python-pychart 
+      - python-pydot 
+      - python-pyparsing 
+      - python-reportlab 
+      - python-simplejson 
+      - python-tz 
+      - python-unittest2 
+      - python-vatnumber 
+      - python-vobject 
+      - python-webdav 
+      - python-werkzeug 
+      - python-xlwt 
+      - python-yaml 
+      - python-zsi 
+      - poppler-utils 
+      - python-pip 
+      - python-passlib 
+      - python-decorator fl
+      - gcc 
+      - python-dev 
+      - mc 
+      - bzr 
+      - python-setuptools 
+      - python-markupsafe 
+      - python-reportlab-accel 
+      - python-zsi 
+      - python-yaml 
+      - python-argparse 
+      - python-openssl 
+      - python-egenix-mxdatetime 
+      - python-usb 
+      - python-serial 
+      - lptools 
+      - make 
+      - python-pydot 
+      - python-psutil 
+      - python-paramiko 
+      - poppler-utils 
+      - python-pdftools 
+      - antiword 
+      - python-requests 
+      - python-xlsxwriter 
+      - python-suds 
+      - python-psycogreen 
+      - python-ofxparse 
+      - libpq-dev
+      - python-pip
+      - npm
+      - software-properties-common
+      - git  
+     
+
+
+  
+
+
+- name: Installation less and  less-plugin-clean-css 
+  npm :
+    name:  "{{ item }}"
+    global: yes
+    state: latest
+  with_items: 
+      - less
+      - less-plugin-clean-css
+    
+
+- name: Install babel, pexpect and pyPdf with pip
+  pip: 
+    name: ['babel', 'pyPdf', 'pexpect']
+
+   #   - babel
+   #   - pyPdf
+   #   - pexpect
+   #   - psyftp 
+
+ 
+
+  
+    
+
+
+
+
+
+...

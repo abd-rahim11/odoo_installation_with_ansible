@@ -1,0 +1,28 @@
+---
+- name : My Odoo
+  hosts : dbservers
+  remote_user : root
+  
+
+
+  roles:
+  # Install odoo v10 :
+    - Utils
+    - Postgresql
+    - Odoo
+#-----------------------------
+    - addons_managys
+    #- create_db
+    #- odoo_modules  
+    #- backup
+    #- restore
+
+
+
+
+
+
+
+
+
+...

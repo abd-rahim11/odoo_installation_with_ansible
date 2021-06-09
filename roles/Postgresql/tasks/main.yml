@@ -1,0 +1,82 @@
+---
+- name: add an url postgresql in 'pgdg.list' file      
+  copy:
+    content: "deb http://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main"
+    dest: /etc/apt/sources.list.d/pgdg.list
+    force: no
+    group: root
+    owner: root
+
+- name: add apt key from postgresql url 
+  apt_key: url=https://www.postgresql.org/media/keys/ACCC4CF8.asc state=present
+  
+- name: apt update
+  apt: update_cache=yes  state=latest  
+
+
+- name: Instalation of postgresql-9.6 server 
+  apt: 
+    name: postgresql-9.6
+    state: latest 
+
+- name: Ensure the PostgreSQL service is running 
+  service: name=postgresql state=started enabled=yes
+
+- name: change authentication method ---->run once the playbook 
+  lineinfile:
+    path: /etc/postgresql/9.6/main/pg_hba.conf
+    regexp: '^local+[ X]+all+[ X]+postgres+[ X]+peer'
+    line: 'local   all             postgres                                trust'
+
+- name: restart Postgresql server     
+  service: name=postgresql state=restarted 
+
+
+
+
+     
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+     
+
+    
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+...
